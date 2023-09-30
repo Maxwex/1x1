@@ -1,0 +1,76 @@
+/* Flashcard.css */
+
+/* Stil für den Container der Karte */
+.flashcard-container {
+    width: 300px; /* Breite der Karteikarte */
+    height: 400px; /* Höhe der Karteikarte */
+    perspective: 1000px; /* Fügt eine 3D-Perspektive hinzu */
+    cursor: pointer; /* Zeiger-Cursor, um anzuzeigen, dass die Karte klickbar ist */
+}
+
+/* Stil für die Karteikarte */
+.flashcard {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s; /* Fügt eine Übergangsanimation für das Drehen hinzu */
+}
+
+/* Stil für die Vorderseite der Karte */
+.front {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3490dc; /* Hintergrundfarbe der Vorderseite */
+    transform: rotateY(0deg);
+;
+}
+
+/* Stil für die Rückseite der Karte */
+.back {
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #38a169; /* Hintergrundfarbe der Rückseite */
+    transform: rotateY(180deg)
+}
+
+/* Animation für das Drehen der Karte
+in der mitte der Animation wird die Karte um 10% vergößert
+ */
+@keyframes rotate-y {
+    0% {
+        transform: scale(1) rotateY(0deg);
+
+    }
+    50% {
+        transform:  scale(1.3) rotateY(90deg);
+    }
+    100% {
+        transform: scale(1  ) rotateY(180deg);
+    }
+}
+
+/* Klasse, um die Karte beim Klicken zu drehen */
+.flashcard-container.flipped .flashcard {
+    animation: rotate-y 0.7s ease-in;
+    transform: rotateY(180deg);
+}
+.gone {
+    transform: translateX(100%);
+    opacity: 0;
+    scale: 1.5;
+    --timing: .8s;
+    transition: transform var(--timing) ease-in-out, opacity var(--timing) ease-in-out, scale var(--timing) ease-in-out;
+}
+

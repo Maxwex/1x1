@@ -1,38 +1,36 @@
-.App {
+@tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+body {
+  @apply text-3xl; /* Ändere die Klasse auf die gewünschte Textgröße (z.B., text-6xl für noch größeren Text) */
+}
+/* Button-Klasse */
+button {
+  @apply px-4 py-2 rounded-lg text-white font-semibold ;
+}
+/* CSS für die Einblende-Animation */
+.result-text {
+    @apply text-4xl font-bold text-black w-full;
+  user-select: none;
+
+  position: absolute;
   text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  /* ignoriere mouse events */
+    pointer-events: none;
+
+  opacity:0; /* Standardmäßig unsichtbar */
+  transition: opacity 0.3s ease-in-out;
+
+  /* Animationseffekte */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.result-text.show {
+  transition: opacity 0.3s ease-in-out;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+  opacity: 1; /* Sichtbar */
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
