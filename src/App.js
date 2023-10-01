@@ -16,7 +16,6 @@ import LandingPage from "./LandingPage"; // Importiere die Kartenansichtseite
 
 function App() {
     return (
-        <Router>
             <AppProvider>
                 <Routes>
 
@@ -27,7 +26,6 @@ function App() {
 
                 </Routes>
             </AppProvider>
-        </Router>
 
     );
 }
