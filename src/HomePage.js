@@ -24,15 +24,25 @@ function HomePage() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-yellow-300 p-4">
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">Wähle eine Malreihe</h1>
-            <div className="grid grid-cols-2 gap-2 w-full mb-4">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-purple-50 p-4 w-full max-w-screen-md">
+            <div className="flex items-center mb-8">
+                <label className="mr-4 text-purple-800">Zufällige Ordnung</label>
+                <div className={`relative w-14 h-8 rounded-full transition duration-300 ease-in-out ${
+                    randomOrder ? 'bg-purple-800' : 'bg-purple-300'
+                }`}
+                     onClick={() => setRandomOrder(!randomOrder)}>
+                    <div className={`absolute left-1 top-1 w-6 h-6 rounded-full transition duration-300 ease-in-out transform ${
+                        randomOrder ? 'translate-x-full bg-white' : 'bg-white'
+                    }`} />
+                </div>
+            </div>
+            <h1 className="text-2xl font-bold text-purple-800 mb-6">Wähle eine Malreihe</h1>
+            <div className="grid grid-cols-2 gap-2 w-full mb-8">
                 {malreihen.map((malreihe) => (
                     <button
                         key={malreihe}
-                        className={`w-full py-2 px-4 rounded   cursor-pointer bg-blue-500 hover:bg-blue-600 ${
-                            // Füge hier eine Bedingung hinzu, um den ausgewählten Modus zu überprüfen und entsprechende Styles anzuwenden
-                            selectedMalreihe === malreihe && 'bg-blue-700 text-white '
+                        className={`w-full py-2 px-8 rounded-lg border border-purple-500 text-purple-800 hover:bg-purple-500 hover:text-white transition duration-300 ease-in-out ${
+                            selectedMalreihe === malreihe && 'bg-purple-500 text-white'
                         }`}
                         onClick={() => setSelectedMalreihe(malreihe)}
                     >
@@ -40,30 +50,13 @@ function HomePage() {
                     </button>
                 ))}
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Wähle die Reihenfolge</h2>
-            <div className="grid grid-cols-2 gap-0 bg-gray-200 p-2 rounded w-full mb-4">
-                {/* Toggle switch für die Reihenfolge-Auswahl */}
-                <button className={`w-full py-2 px-4 rounded cursor-pointer ${!randomOrder ? 'bg-green-500':'bg-gray-500'} `}
-                        onClick={() => setRandomOrder(false)}>
-                    Geordnet
-                </button>
-                <button className={`w-full py-2 px-4 rounded cursor-pointer ${randomOrder ? 'bg-green-500':'bg-gray-500'}`}
-                        onClick={() => setRandomOrder(true)}>
-                    Zufällig
-                </button>
 
-            </div>
-
-            <h1 className="text-3xl font-bold text-gray-800 mb-4">Wähle einen Spielmodus</h1>
-
-            <div className="grid grid-cols-1 gap-2 w-full justify-center items-center">
-                {/* Toggle für die Lernmodus-Auswahl */}
-
+            <h1 className="text-2xl font-bold text-purple-800 mb-6">Wähle einen Spielmodus</h1>
+            <div className="grid grid-cols-1 gap-4 w-full justify-center items-center">
                 {Object.values(LERNMODI).map((lernmodus) => (
                     <button
                         key={lernmodus.name}
-                        className={`w-full py-2 px-4 rounded-lg bg-green-500 hover:bg-green-600 click:bg-green-700 text-white
-                         cursor-pointer `}
+                        className={`shadow-md bg-purple-500 w-full py-4 px-8 rounded-lg border border-purple-500 text-purple-100 hover:bg-purple-200 hover:text-purple-800 transition duration-300 ease-in-out`}
                         onClick={() => handleLernmodusSelection(lernmodus)}
                     >
                         {lernmodus.name}
@@ -72,6 +65,12 @@ function HomePage() {
             </div>
             {/* ... (Rest des Codes bleibt gleich) ... */}
         </div>
+
+
+
+
+
+
     );
 }
 

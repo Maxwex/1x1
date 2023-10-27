@@ -16,6 +16,7 @@ import LandingPage from "./LandingPage"; // Importiere die Kartenansichtseite
 
 function App() {
     return (
+        <div className="flex flex-col items-center justify-center min-h-screen bg-purple-50">
             <AppProvider>
                 <Routes>
 
@@ -26,6 +27,7 @@ function App() {
 
                 </Routes>
             </AppProvider>
+        </div>
 
     );
 }

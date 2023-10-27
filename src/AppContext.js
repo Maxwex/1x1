@@ -74,5 +74,8 @@ export function AppProvider({ children }) {
         // Weitere Funktionen zur Zustandsverwaltung
     };
 
-    return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
+    return <AppContext.Provider value={contextValue}
+    >
+
+        {children}</AppContext.Provider>;
 }

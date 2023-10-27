@@ -26,7 +26,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #3490dc; /* Hintergrundfarbe der Vorderseite */
     transform: rotateY(0deg);
 ;
 }
@@ -41,9 +40,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #38a169; /* Hintergrundfarbe der Rückseite */
-    transform: rotateY(180deg)
+/* Hintergrundfarbe der Rückseite */
+    transform: rotateY(180deg);
+    @apply bg-purple-100
 }
+
 
 /* Animation für das Drehen der Karte
 in der mitte der Animation wird die Karte um 10% vergößert

@@ -24,7 +24,7 @@ function Flashcard({ question, answer, onGone, zindex}) {
 
     const z = `z-[${zindex}]`;
     return (
-        <div className={ `${z}  absolute max-w-xs mx-auto my-4 perspective ${hidden ? 'gone' : ''} } flashcard-container ${flipped ? 'flipped' : ''}`}
+        <div className={ `${z}   absolute max-w-xs mx-auto my-4 perspective ${hidden ? 'gone' : ''} } flashcard-container ${flipped ? 'flipped' : ''}`}
              style={{zIndex: zindex}}
              onClick={handleCardClick}
 
@@ -32,10 +32,10 @@ function Flashcard({ question, answer, onGone, zindex}) {
 
         >
             <div className="flashcard ">
-                <div className="front rounded-xl">
+                <div className="front rounded-xl fcard">
                     <p className="text-3xl font-bold">{question}</p>
                 </div>
-                <div className="back rounded-xl">
+                <div className="back rounded-xl fcard">
                     <p className="text-3xl font-bold ">{question+" "+answer}</p>
                 </div>
             </div>

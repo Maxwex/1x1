@@ -25,50 +25,41 @@ function ResultsView() {
         }
         , []);
 
+    const score = 3-(wrongAnswersCount-1)/2;
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-green-100 p-4">
-            <Bewertung bewertung={3}/>
+        <div className="min-h-screen flex flex-col items-center justify-center bg-purple-50 p-4">
             {lernmodus === 'eingabefeld' ? (
-                <div className="mb-4">
-                    <h1 className="text-3xl text-center font-bold text-gray-800 mb-8">
+                <div className="mb-4 text-center">
+                    <Bewertung bewertung={score} />
+                    <h1 className="text-4xl font-bold text-purple-800 mb-8">
                         Die {selectedMalreihe}-er Reihe ist geschafft!
                     </h1>
-
-                    <p className="text-xl text-gray-800 mb-2">
+                    <p className="text-xl text-gray-800 mb-4">
                         Du hast nur {wrongAnswersCount} mal daneben gelegen.
                     </p>
-                    <p className="text-2xl text-black mb-2">
-                        {// Berechne die benötigte Zeit ohne nachkommastelle und gib sie hier aus
-
-                        }
-
-                        Deine Zeit: <span className={"font-bold text-3xl "}>
-                {elapsedTime.toFixed(0)
-                }</span> Sekunden
+                    <p className="text-3xl text-black mb-4">
+                        Deine Zeit: <span className="font-bold">{elapsedTime.toFixed(0)} Sekunden</span>
                     </p>
-
                 </div>
-
-
             ) : (
-                <div className="mb-4">
-                    <h1 className="text-3xl font-bold text-gray-800 mb-4">
-                        Du hast die ganze {selectedMalreihe}-er Reihe fleissig geübt.
+                <div className="mb-4 text-center">
+                    <h1 className="text-4xl font-bold text-purple-800 mb-4">
+                        Du hast die ganze {selectedMalreihe}-er Reihe fleißig geübt.
                     </h1>
-                    <p className="text-xl text-gray-800 mb-2">
+                    <p className="text-2xl text-gray-800 mb-4">
                         Und dir eine Pause verdient. ⚽
                     </p>
                 </div>
             )}
             <button
-                className="bg-blue-500 mt-4 w-full border-4 border-white
-                text-white py-2 px-4 rounded hover:bg-blue-600 cursor-pointer"
+                className="bg-purple-500 mt-4 w-full border-4 border-white text-white py-3 px-6 rounded-lg hover:bg-purple-600 cursor-pointer text-2xl"
                 onClick={() => navigate('/home')}
             >
                 Zum Hauptmenü
             </button>
         </div>
+
     );
 }
 
