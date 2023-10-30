@@ -10,7 +10,10 @@ import {AppProvider} from "./AppContext";
 import EingabefeldView from "./EingabefeldView";
 import ResultsView from "./ResultsView";
 import ModeSwitch from "./ModeSwitch";
-import LandingPage from "./LandingPage"; // Importiere die Kartenansichtseite
+import LandingPage from "./LandingPage";
+import Anleitung from "./Anleitung";
+import Tipps from "./Tipps"; // Importiere die Kartenansichtseite
+
 
 
 
@@ -24,6 +27,8 @@ function App() {
                     <Route path="/home" element={<HomePage/>}/>
                     <Route path="/:lernmodus" element={<ModeSwitch/>}/>
                     <Route path="/results/:lernmodus" element={<ResultsView/>}/>
+                    <Route path="/anleitung" element={<Anleitung/>}/>
+                    <Route path="/tipps" element={<Tipps/>}/>
 
                 </Routes>
             </AppProvider>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import { useAppContext } from './AppContext';
 import { LERNMODI } from './LERNMODI'; // Importiere die Lernmodi-Konfiguration
 
@@ -23,10 +23,11 @@ function HomePage() {
         navigate(lernmodus.path); // Leite zur ausgewählten Lernmodus-Ansicht weiter
     };
 
+
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-purple-50 p-4 w-full max-w-screen-md">
+        <div className="h-screen flex flex-col items-center justify-center bg-purple-50 p-4 w-full max-w-screen-md">
             <div className="flex items-center mb-8">
-                <label className="mr-4 text-purple-800">Zufällige Ordnung</label>
+                <label className="mr-4 text-purple-800">Zufällige Reihenfolge</label>
                 <div className={`relative w-14 h-8 rounded-full transition duration-300 ease-in-out ${
                     randomOrder ? 'bg-purple-800' : 'bg-purple-300'
                 }`}
@@ -42,7 +43,7 @@ function HomePage() {
                     <button
                         key={malreihe}
                         className={`w-full py-2 px-8 rounded-lg border border-purple-500 text-purple-800 hover:bg-purple-500 hover:text-white transition duration-300 ease-in-out ${
-                            selectedMalreihe === malreihe && 'bg-purple-500 text-white'
+                            selectedMalreihe === malreihe && 'bg-purple-500 border border-red-500-800 text-white'
                         }`}
                         onClick={() => setSelectedMalreihe(malreihe)}
                     >
@@ -63,13 +64,19 @@ function HomePage() {
                     </button>
                 ))}
             </div>
-            {/* ... (Rest des Codes bleibt gleich) ... */}
+            <div className="grid grid-cols-2 gap-2 w-full mt-6">
+                <Link to="/anleitung">
+                    <button className="bg-purple-100 w-full hover:bg-purple-200 border-4 border-purple-500 text-purple-800  py-2  rounded-lg  text-2xl">
+                            Anleitung
+                    </button>
+                </Link>
+                <Link to="/tipps">
+                    <button className="bg-purple-100 w-full hover:bg-purple-200 border-4 border-purple-500 text-purple-800  py-2  mx-0 rounded-lg  text-2xl">
+                        Tipps
+                    </button>
+                </Link>
+            </div>
         </div>
-
-
-
-
-
 
     );
 }
