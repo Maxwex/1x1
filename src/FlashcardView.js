@@ -39,7 +39,7 @@ function FlashcardView() {
 
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-purple-50 p-4">
+        <div className="h-screen flex flex-col items-center justify-center bg-purple-50 p-4">
             <h1 className="text-3xl font-bold text-gray-800 mb-4">
                 {randomOrder ? 'Zufälliger Lernmodus': 'Geordneter Lernmodus' }
             </h1>
@@ -56,7 +56,7 @@ function FlashcardView() {
                     />
                 ))}
             </div>
-
+            <p  className="text-2xl text-gray-800 m-4">Klicke auf die Karte, um die Antwort zu sehen.</p>
 
         </div>
     );

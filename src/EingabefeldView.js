@@ -86,7 +86,7 @@ function EingabefeldView() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center bg-purple-50 p-4 rounded-lg shadow-lg w-full max-w-screen-md">
+        <div className="h-screen flex flex-col items-center justify-center bg-purple-50 p-4 rounded-lg shadow-lg w-full max-w-screen-md">
             <h1 className="text-4xl font-bold text-purple-800 mb-6">Eingabefeld-Modus</h1>
             {currentQuestion && (
                 <div className={`bg-white relative rounded-lg p-6 shadow-md text-center w-full max-w-md ${showResult && (userAnswer === currentQuestion.correctAnswer ? 'border-green-500' : 'border-red-500')}`}>
